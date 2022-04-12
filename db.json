@@ -1,0 +1,108 @@
+{
+  "infomation": [
+    {
+      "id": 1,
+      "name": "Ngô Văn Phong",
+      "email": "naruto2003v@gmail.com",
+      "birthdate": "2022-04-14",
+      "age": 22,
+      "address": "Tốt Động,Chương Mỹ,Hà Nội",
+      "avatar": "http://res.cloudinary.com/web16303/image/upload/v1649668136/web16303/kdgunxdyjr46x9taljd3.jpg",
+      "desc": "Tôi có khả năng thích nghi cao với nhiều loại môi trường làm việc. Trên website của công ty, tôi thấy công ty có môi trường làm việc nhịp độ nhanh và có cơ cấu để mở rộng sản xuất. Đó là điều làm tôi hứng thú, tôi thích làm việc trong khu vực có tốc độ tăng trưởng nhanh và tôi cho rằng nhiều khi loại môi trường này có ích cho những ý tưởng và ứng dụng mới."
+    }
+  ],
+  "skills": [
+    {
+      "id": 1,
+      "name": "Python & Django",
+      "score": 75
+    },
+    {
+      "id": 2,
+      "name": "Javascript",
+      "score": 80
+    },
+    {
+      "id": 3,
+      "name": "React & Angular",
+      "score": 90
+    },
+    {
+      "id": 4,
+      "name": "HTML5 & CSS",
+      "score": 70
+    },
+    {
+      "id": 5,
+      "name": "Ruby on Rails",
+      "score": 60
+    },
+    {
+      "id": 6,
+      "name": "Sketch & Photoshop",
+      "score": 65
+    },
+    {
+      "name": "ádasdasd",
+      "score": 82,
+      "id": 7
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "name": "Website đặt biệt thự Flamingo",
+      "start_time": "2022-04-09",
+      "end_time": "2022-04-07",
+      "link": "https://tailwindcss.com/docs/border-radius#rounding-corners-separately",
+      "desc": "Dự án 1"
+    },
+    {
+      "name": "Website quản lý CV cá nhân",
+      "start_time": "2022-04-08",
+      "end_time": "2022-04-09",
+      "desc": "Lab Angular",
+      "link": "https://vn.joboko.com/blog/tra-loi-cau-hoi-ban-mong-muon-lam-viec-o-moi-truong-nhu-the-nao-nsi329",
+      "id": 2
+    }
+  ],
+  "schools": [
+    {
+      "id": 1,
+      "name": "Trường tiểu học xã Tốt Động",
+      "start_time": "2022-04-09",
+      "end_time": "2022-04-07",
+      "prosper": [
+        "Học sinh giỏi ",
+        "Có người yêu"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Trường trung học cơ sở Tốt Động",
+      "start_time": "2022-04-09",
+      "end_time": "2022-04-07",
+      "prosper": [
+        "Học sinh giỏi"
+      ]
+    },
+    {
+      "name": "Trường THPT Chúc Động",
+      "start_time": "2017-09-02",
+      "end_time": "2020-07-15",
+      "prosper": [
+        "Năm lớp 11 - Đi thi học sinh giỏi"
+      ],
+      "id": 3
+    },
+    {
+      "name": "Cao đẳng thực hành FPT Polytechnic",
+      "start_time": "2020-10-10",
+      "end_time": "2023-01-01",
+      "prosper": [
+        "Sinh viên có thành tích tốt"
+      ],
+      "id": 4
+    }
+  ]
+}

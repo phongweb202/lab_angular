@@ -1,0 +1,65 @@
+<div style="min-height: 700px;">
+
+
+    <div class="tw-bg-white mt-2 tw-shadow-xl tw-rounded-lg ">
+        <h2 class="alert alert-success">SKILLS</h2>
+        <table class="table  table-striped text-center">
+
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Tên kĩ năng</th>
+                    <th>Điểm</th>
+                    <th><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Thêm
+                            mới</button></th>
+                </tr>
+            </thead>
+            <tbody class="">
+                <tr *ngFor="let s of skills">
+                    <td>{{s.id}}</td>
+                    <td>{{s.name}}</td>
+                    <td class="text-warning">
+                        <app-show-score [score]="s.score"></app-show-score>
+                    </td>
+                    <td>
+                        <button class="btn btn-warning" (click)="onEdit(s.id)" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">Cập nhật</button>
+                        <button class="ms-2 btn btn-danger" (click)="remove(s.id)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form [formGroup]="form" (submit)="onSubmit(form.value)">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">{{title}}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Tên skills</label>
+                        <input type="text" class="form-control" formControlName="name">
+                    </div>
+                    <app-show-validate [formData]="form.get('name')" key="Skill"></app-show-validate>
+                    <div class="mb-3">
+                        <label for="message-text" class="col-form-label">Điểm số</label>
+                        <input type="number" class="form-control" formControlName="score">
+                    </div>
+                    <app-show-validate [formData]="form.get('score')" key="Score"></app-show-validate>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn text-light" style="background-color:  #0d6efd;"
+                        data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn text-light" data-bs-dismiss="modal"
+                        style="background-color: #6c757d;" [disabled]="form.invalid">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var questions = [
+            {
+                "id": 25326,
+                "Text": "Câu nào là đúng đối với việc quản lý tài nguyên trong Robolectric?",
+                "Marks": 1,
+                "AnswerId": 1,
+                "Answers": [
+                    {
+                        "id": 1,
+                        "Text": "Chỉ cho phép thay đổi cách tài nguyên được nạp dựa trên yếu tố thiết bị"
+                    },
+                    {
+                        "id": 2,
+                        "Text": "Chỉ cho phép thay đổi cách tài nguyên được nạp dựa trên các yếu tố thiết bị, cỡ màn hình"
+                    },
+                    {
+                        "id": 3,
+                        "Text": "Cho phép thay đổi cách tài nguyên được nạp dựa trên các yếu tố thiết bị, cỡ màn hình,ngôn ngữ"
+                    },
+                    {
+                        "id": 4,
+                        "Text": "Không cho phép thay đổi tài nguyên"
+                    }
+                ]
+            },
+            {
+                "id": 25327,
+                "Text": "Để xác định tài nguyên cho phương thức kiểm thử cụ thể, phải sử dụng từ khóa nào trước phương thức đó?",
+                "Marks": 1,
+                "AnswerId": 1,
+                "Answers": [
+                    {
+                        "id": 1,
+                        "Text": "@Configurtor"
+                    },
+                    {
+                        "id": 2,
+                        "Text": "@Config"
+                    },
+                    {
+                        "id": 3,
+                        "Text": "@Configs"
+                    },
+                    {
+                        "id": 4,
+                        "Text": "@Configuration"
+                    }
+                ]
+            },
+            {
+                "id": 25326,
+                "Text": "Câu nào là đúng đối với việc quản lý tài nguyên trong Robolectric?",
+                "Marks": 1,
+                "AnswerId": 1,
+                "Answers": [
+                    {
+                        "id": 1,
+                        "Text": "Chỉ cho phép thay đổi cách tài nguyên được nạp dựa trên yếu tố thiết bị"
+                    },
+                    {
+                        "id": 2,
+                        "Text": "Chỉ cho phép thay đổi cách tài nguyên được nạp dựa trên các yếu tố thiết bị, cỡ màn hình"
+                    },
+                    {
+                        "id": 3,
+                        "Text": "Cho phép thay đổi cách tài nguyên được nạp dựa trên các yếu tố thiết bị, cỡ màn hình,ngôn ngữ"
+                    },
+                    {
+                        "id": 4,
+                        "Text": "Không cho phép thay đổi tài nguyên"
+                    }
+                ]
+            },
+            {
+                "id": 25326,
+                "Text": "Câu nào là đúng đối với việc quản lý tài nguyên trong Robolectric?",
+                "Marks": 1,
+                "AnswerId": 1,
+                "Answers": [
+                    {
+                        "id": 1,
+                        "Text": "Chỉ cho phép thay đổi cách tài nguyên được nạp dựa trên yếu tố thiết bị"
+                    },
+                    {
+                        "id": 2,
+                        "Text": "Chỉ cho phép thay đổi cách tài nguyên được nạp dựa trên các yếu tố thiết bị, cỡ màn hình"
+                    },
+                    {
+                        "id": 3,
+                        "Text": "Cho phép thay đổi cách tài nguyên được nạp dựa trên các yếu tố thiết bị, cỡ màn hình,ngôn ngữ"
+                    },
+                    {
+                        "id": 4,
+                        "Text": "Không cho phép thay đổi tài nguyên"
+                    }
+                ]
+            },
+        ];
+        var answers = [1, 1, 1, 3];
+        var score = 0;
+        for (let index = 0; index < questions.length; index++) {
+            if (answers[index] === questions[index].AnswerId) {
+                score += 1;
+            }
+        }
+        console.log(score);
+    </script>
+</body>
+
+</html>

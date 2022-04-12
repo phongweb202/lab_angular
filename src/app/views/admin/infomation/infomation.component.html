@@ -1,0 +1,151 @@
+<form [formGroup]="form" (submit)="onSubmit(form.value)">
+  <div class="row">
+    <div class="col-8 p-5">
+      <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+          <div class="row align-items-center">
+            <div class="col-6">
+              <h3 class="mb-0">My Infomation</h3>
+            </div>
+            <div class="col-6 text-right tw-gird tw-gird-cols-2">
+              <button class="btn btn-primary tw-w-36" [disabled]="form.invalid" type="submit" *ngIf="!dis">Save</button>
+              <button (click)="cancel()" *ngIf="!dis" class="btn btn-danger tw-w-36">Hủy</button>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+
+          <h6 class="heading-small text-muted mb-4">User information</h6>
+          <div class="pl-lg-4">
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group focused">
+                  <label class="form-control-label" for="input-username">Họ Tên</label>
+                  <input formControlName="name" type="text" id="input-username"
+                    class="form-control form-control-alternative">
+                </div>
+                <app-show-validate [formData]="form.get('name')" key="Tên"></app-show-validate>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label class="form-control-label" for="input-email">Email address</label>
+                  <input type="email" id="input-email" class="form-control form-control-alternative"
+                    formControlName="email">
+                </div>
+                <app-show-validate [formData]="form.get('email')" key="Email"></app-show-validate>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group focused">
+                  <label class="form-control-label" for="input-first-name">Ngày sinh</label>
+                  <input type="date" id="input-first-name" formControlName="birthdate"
+                    class="form-control form-control-alternative">
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group focused">
+                  <label class="form-control-label" for="input-last-name">Tuổi</label>
+                  <input type="number" id="input-last-name" class="form-control form-control-alternative"
+                    formControlName="age">
+                    <app-show-validate [formData]="form.get('age')" key="Tuổi"></app-show-validate>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr class="my-4">
+          <!-- Address -->
+          <h6 class="heading-small text-muted mb-4">Contact information</h6>
+          <div class="pl-lg-4">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group focused">
+                  <label class="form-control-label" for="input-address">Address</label>
+                  <input id="input-address" class="form-control form-control-alternative" placeholder="Home Address"
+                    formControlName="address">
+                </div>
+                <app-show-validate [formData]="form.get('address')" key="Địa chỉ"></app-show-validate>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group focused">
+                  <label class="form-control-label" for="input-address">Avatar</label>
+                  <input [disabled]="dis" class="form-control" type="file" (change)="onUpload($event)">
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <hr class="my-4">
+          <!-- Description -->
+          <h6 class="heading-small text-muted mb-4">About me</h6>
+          <div class="pl-lg-4">
+            <div class="form-group focused">
+              <label>About Me</label>
+              <textarea rows="4" class="form-control form-control-alternative"
+                formControlName="desc">A beautiful Dashboard for Bootstrap 4. It is Free and Open Source.</textarea>
+            </div>
+          </div>
+
+
+        </div>
+
+      </div>
+    </div>
+    <div class="col-4 tw-mt-20">
+      <div class="card card-profile shadow me-4">
+        <div class="row justify-content-center">
+          <div class="col-lg-3 order-lg-2">
+            <div class="card-profile-image">
+              <a href="#">
+                <img [src]="infomation && infomation.avatar" class="rounded-circle">
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
+          <div class="d-flex justify-content-between">
+            <button type="button" (click)="edit()" class="btn btn-sm btn-info mr-4">Edit</button>
+          </div>
+        </div>
+        <div class="card-body pt-0 pt-md-4">
+          <div class="row">
+            <div class="col">
+              <div class="card-profile-stats d-flex justify-content-center mt-md-5">
+                <div>
+                  <span class="heading">2002</span>
+                  <span class="description">Năm sinh</span>
+                </div>
+                <div>
+                  <span class="heading">Hà Nội</span>
+                  <span class="description">Địa chỉ</span>
+                </div>
+                <div>
+                  <span class="heading">Sinh viên</span>
+                  <span class="description">Nghề Nghiệp</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="text-center">
+            <h3>
+              {{infomation && infomation.name}}<span class="font-weight-light">, {{infomation && infomation.age}}</span>
+            </h3>
+            <div class="h5 font-weight-300">
+              <i class="ni location_pin mr-2"></i>{{infomation && infomation.address}}
+            </div>
+            <div class="h5 mt-4">
+              <i class="ni business_briefcase-24 mr-2"></i>Sinh viên
+            </div>
+            <div>
+              <i class="ni education_hat mr-2"></i>Cao đẳng FPT Polytechnic
+            </div>
+            <hr class="my-4">
+            <p>Trên con đường thành công không có dấu chân kẻ lười biếng</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

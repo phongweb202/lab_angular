@@ -1,0 +1,81 @@
+<div style="min-height: 750px;">
+
+
+    <div class="tw-bg-white mt-2 tw-shadow-xl tw-rounded-lg ">
+        <h2 class="alert alert-success">Projects</h2>
+        <table class="table  table-striped text-center">
+
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Tên dự án</th>
+                    <th>Thời gian bắt đầu</th>
+                    <th>Thời gian kết thúc</th>
+                    <th>Mô tả ngắn</th>
+                    <th><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Thêm
+                            mới</button></th>
+                </tr>
+            </thead>
+            <tbody class="">
+                <tr *ngFor="let p of projects">
+                    <td>{{p.id}}</td>
+                    <td>{{p.name}}</td>
+                    <td>{{p.start_time | date: 'MM/dd/yyyy'}}</td>
+                    <td>{{p.end_time | date: 'MM/dd/yyyy'}}</td>
+                    <td>{{p.desc}}</td>
+                    <td>
+                        <button class="btn btn-warning" (click)="onEdit(p.id)" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">Cập nhật</button>
+                        <button class="ms-2 btn btn-danger" (click)="remove(p.id)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form [formGroup]="form" (submit)="onSubmit(form.value)">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">{{title}}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="mb-3">
+                        <label class="col-form-label">Tên dự án</label>
+                        <input type="text" class="form-control" formControlName="name">
+                    </div>
+                    <app-show-validate [formData]="form.get('name')" key="Tên dự án"></app-show-validate>
+                    <div class="mb-3">
+                        <label class="col-form-label">Thời gian bắt đầu</label>
+                        <input type="date" class="form-control" formControlName="start_time">
+                    </div>
+                  
+                    <div class="mb-3">
+                        <label class="col-form-label">Thời gian kết thúc</label>
+                        <input type="date" class="form-control" formControlName="end_time">
+                    </div>
+                    <div class="mb-3">
+                        <label class="col-form-label">Link source code</label>
+                        <input type="text" class="form-control" formControlName="link">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Mô tả</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" formControlName="desc"
+                            rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn text-light" style="background-color:  #0d6efd;"
+                        data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn text-light" data-bs-dismiss="modal"
+                        style="background-color: #6c757d;">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

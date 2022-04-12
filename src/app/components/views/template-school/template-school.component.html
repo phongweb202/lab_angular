@@ -1,0 +1,21 @@
+<div class="item">
+    <div class="meta">
+        <div class="upper-row">
+            <h3 class="job-title"><i class="fa-solid fa-school me-2"></i>{{name}}</h3>
+            <div class="time">{{start_time | date:'dd/MM/yyyy'}} - {{end_time | date:'dd/MM/yyyy'}}</div>
+        </div>
+        <!--//upper-row-->
+        <div class="company">Hà Nội</div>
+    </div>
+    <!--//meta-->
+    <div class="details">
+        <p style="color: #35776d;" class="tw-font-bold">Thành tích trong thời gian học</p>
+        <div class="mb-3">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item" *ngFor="let p of prosper"><i class="fa-solid fa-medal me-2"></i>{{p}}</li>
+            </ul>
+        </div>
+    </div>
+    <!--//details-->
+</div>
+<!--//item-->
