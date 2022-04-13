@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { BasicServiceService } from 'src/app/services/basic-service.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-skill',
@@ -40,10 +41,12 @@ export class SkillComponent implements OnInit {
       this.skillService.update('skills', this.idEdit, duLieu).subscribe(data => {
         this.onGetList();
         this.idEdit = 0;
+        Swal.fire('Thông báo',"Cập nhật thông tin kĩ năng thành công",'success');
       })
     } else {
       this.skillService.create('skills', duLieu).subscribe(data => {
         this.onGetList();
+        Swal.fire('Thông báo',"Thêm mới kĩ năng thành công",'success');
       })
     }
   }
@@ -52,6 +55,7 @@ export class SkillComponent implements OnInit {
     if (confirm) {
       this.skillService.remove('skills', id).subscribe(data => {
         this.onGetList();
+        Swal.fire('Thông báo',"Xóa kĩ năng thành công",'success');
       })
     }
   }

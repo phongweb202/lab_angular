@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { BasicServiceService } from 'src/app/services/basic-service.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-project',
@@ -47,6 +48,7 @@ export class ProjectComponent implements OnInit {
     if (confirm) {
       this.projectService.remove('projects', id).subscribe(data => {
         this.onGetList();
+        Swal.fire("Thông báo", "Xóa dự án thành công", 'success');
       })
     }
   }
@@ -54,10 +56,12 @@ export class ProjectComponent implements OnInit {
     if (this.idEdit) {
       this.projectService.update('projects', this.idEdit, duLieu).subscribe(data => {
         this.onGetList();
+        Swal.fire("Thông báo", "Cập nhật thông tin dự án thành công", 'success');
       })
     } else {
       this.projectService.create('projects', duLieu).subscribe(data => {
         this.onGetList();
+        Swal.fire("Thông báo", "Thêm mới dự án thành công", 'success');
       });
     }
   }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { BasicServiceService } from 'src/app/services/basic-service.service';
-import { formatDate } from '@angular/common';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-infomation',
@@ -42,7 +42,6 @@ export class InfomationComponent implements OnInit {
         desc: data.desc,
         birthdate: data.birthdate
       });
-
       this.form.disable();
     });
   }
@@ -54,18 +53,22 @@ export class InfomationComponent implements OnInit {
     this.onGetInfo();
   }
   onSubmit(duLieu: any) {
-    this.dis = true;
     if (this.file) {
       this.infoService.uploadImg(this.file).subscribe(response => {
         this.infoService.update("infomation", this.infomation.id, { ...duLieu, avatar: response.url }).subscribe(data => {
           this.onGetInfo();
+          this.file = '';
+          this.dis = true;
+          this.form.disable();
+          Swal.fire("Thông báo", "Cập nhật thông tin thành công", 'success');
         })
       });
     }
     else {
       this.infoService.update("infomation", this.infomation.id, duLieu).subscribe(data => {
-        console.log(data);
-        this.onGetInfo();
+        this.dis = true;
+        this.form.disable();
+        Swal.fire("Thông báo", "Cập nhật thông tin thành công", 'success');
       });
     }
   }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { BasicServiceService } from 'src/app/services/basic-service.service';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-school',
   templateUrl: './school.component.html',
@@ -20,7 +20,7 @@ export class SchoolComponent implements OnInit {
       name: new FormControl('', Validators.required),
       start_time: new FormControl('', Validators.required),
       end_time: new FormControl('', Validators.required),
-    })
+    });
   }
   thanhtich = new Array();
   onGetList() {
@@ -44,6 +44,7 @@ export class SchoolComponent implements OnInit {
     if (confirm) {
       this.schoolService.remove('schools', id).subscribe(data => {
         this.onGetList();
+        Swal.fire('Thông báo', 'Xóa trường học thành công', 'success')
       })
     }
   }
@@ -56,11 +57,13 @@ export class SchoolComponent implements OnInit {
         this.onGetList();
         this.thanhtich = [];
         this.idEdit = 0;
-      })
+        Swal.fire('Thông báo', 'Cập nhật thông tin trường học thành công', 'success')
+      });
     } else {
       this.schoolService.create('schools', { ...duLieu, prosper: this.thanhtich }).subscribe(data => {
         this.onGetList();
         this.thanhtich = [];
+        Swal.fire('Thông báo', 'Thêm mới trường học thành công', 'success')
       })
     }
     this.form.setValue({ name: '', start_time: '', end_time: '' });
@@ -78,7 +81,7 @@ export class SchoolComponent implements OnInit {
     } else {
       this.thanhtich.push(this.giaiThuong);
     }
-   
+
     this.giaiThuong = '';
   }
   removePt(i: number) {
