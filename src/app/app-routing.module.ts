@@ -40,9 +40,9 @@ const routes: Routes = [
     component: LayoutComponent,
     children: [
       {
-        path:'',
-        pathMatch:'full',
-        redirectTo:'dashboard'
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'dashboard'
       },
       {
         path: 'dashboard',
@@ -63,7 +63,7 @@ const routes: Routes = [
       {
         path: 'school',
         component: SchoolComponent
-      }
+      },
     ]
   },
   {

@@ -18,7 +18,6 @@ import { ShowScoreComponent } from './components/show-score/show-score.component
 import { ProjectComponent } from './views/admin/project/project.component';
 import { SchoolComponent } from './views/admin/school/school.component';
 import { FormsModule } from '@angular/forms';
-import { CvComponent } from './views/admin/cv/cv.component';
 import { TemplateSchoolComponent } from './components/views/template-school/template-school.component';
 import { TemplateProjectComponent } from './components/views/template-project/template-project.component';
 import { TempateSkillComponent } from './components/views/tempate-skill/tempate-skill.component';
@@ -37,7 +36,6 @@ import { ShowValidateComponent } from './components/show-validate/show-validate.
     ShowScoreComponent,
     ProjectComponent,
     SchoolComponent,
-    CvComponent,
     TemplateSchoolComponent,
     TemplateProjectComponent,
     TempateSkillComponent,

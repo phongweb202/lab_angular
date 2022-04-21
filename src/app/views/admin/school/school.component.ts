@@ -87,9 +87,17 @@ export class SchoolComponent implements OnInit {
   removePt(i: number) {
     this.thanhtich = this.thanhtich.filter((item: any, index: number) => index !== i);
   }
+  message = ''
   editPT(i: number) {
     this.index = i;
     this.edit = true;
     this.giaiThuong = this.thanhtich[i];
+  }
+  check() {
+    if (this.form.value.start_time > this.form.value.end_time && this.form.value.end_time) {
+      this.message = 'Thời gian bắt đầu sớm hơn thời gian kết thúc';
+    } else {
+      this.message = '';
+    }
   }
 }

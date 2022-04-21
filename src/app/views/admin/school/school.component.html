@@ -56,11 +56,12 @@
                     <app-show-validate [formData]="form.get('name')" key="Tên trường học"></app-show-validate>
                     <div class="mb-3">
                         <label class="col-form-label">Thời gian bắt đầu</label>
-                        <input type="date" class="form-control" formControlName="start_time">
+                        <input type="date" class="form-control" formControlName="start_time" (change)="check()">
+                        <p class="text-danger mt-2">{{message}}</p>
                     </div>
                     <div class="mb-3">
                         <label class="col-form-label">Thời gian kết thúc</label>
-                        <input type="date" class="form-control" formControlName="end_time">
+                        <input type="date" class="form-control" formControlName="end_time" (change)="check()">
                     </div>
                     <div class="input-group mb-3" *ngIf="edit === false">
                         <input type="text" class="form-control" placeholder="Thành tích" (input)="onChange($event) " value="{{giaiThuong}}"
